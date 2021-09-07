@@ -28,9 +28,7 @@ public class HomeController {
 		
 		List<TodoItem> items = todoService.findAll();
 		
-		for(TodoItem i : items) {
-			System.out.println(i.toString());
-		}
+		model.addAttribute("items", items);
 		
 		System.out.println(items.toString());
 		

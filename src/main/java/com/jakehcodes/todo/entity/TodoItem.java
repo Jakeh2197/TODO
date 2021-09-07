@@ -135,7 +135,5 @@ public class TodoItem {
 				+ priority + ", severity=" + severity + ", dueDate=" + dueDate + ", dateCreated=" + dateCreated
 				+ ", dateUpdated=" + dateUpdated + "]";
 	}
-	
-	
 
 }
