@@ -24,13 +24,10 @@ public class HomeController {
 	
 	@GetMapping("/list") 
 	public String listTodoItems(Model model) {
-		System.out.println("Its working!");
 		
 		List<TodoItem> items = todoService.findAll();
 		
 		model.addAttribute("items", items);
-		
-		System.out.println(items.toString());
 		
 		return "home/list";
 	}
