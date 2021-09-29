@@ -16,40 +16,42 @@
 				Add Item
 			</a>
 			
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Ticket Number</th>
-						<th>Title</th>
-						<th>Severity</th>
-						<th>Priority</th>
-						<th>Status</th>
-						<th>Due Date</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				
-				<tbody>
-					<tr th:each="item : ${items}">
-						<td th:text="${item.id}" />
-						<td th:text="${item.title}" />
-						<td th:text="${item.severity}" />
-						<td th:text="${item.priority}" />
-						<td th:text="${item.status}" />
-						<td th:text="${item.dueDate}" />
-						<td>
-							<a th:href="@{/employees/showFormForUpdate(employeeId=${item.id})}" class="btn btn-info btn-sm">
-								Update
-							</a>
-							
-							<a th:href="@{/employees/delete(employeeId=${item.id})}" class="btn btn-danger btn-sm"
-								onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
-								Delete
-							</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="data">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Ticket Number</th>
+							<th>Title</th>
+							<th>Severity</th>
+							<th>Priority</th>
+							<th>Status</th>
+							<th>Due Date</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="item : ${items}">
+							<td th:text="${item.id}" />
+							<td th:text="${item.title}" />
+							<td th:text="${item.severity}" />
+							<td th:text="${item.priority}" />
+							<td th:text="${item.status}" />
+							<td th:text="${item.dueDate}" />
+							<td>
+								<a th:href="@{/employees/showFormForUpdate(employeeId=${item.id})}" class="btn btn-info btn-sm">
+									Update
+								</a>
+								
+								<a th:href="@{/employees/delete(employeeId=${item.id})}" class="btn btn-danger btn-sm"
+									onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+									Delete
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>

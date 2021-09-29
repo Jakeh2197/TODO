@@ -39,7 +39,7 @@ public class HomeController {
 		
 		TodoItem item = new TodoItem();
 		
-		model.addAttribute(item);
+		model.addAttribute("item", item);
 		
 		return "home/add-item-form";
 		

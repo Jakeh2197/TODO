@@ -15,26 +15,39 @@
 		<div class="container">
 			<h3>Add Item</h3>
 			
-<!-- 			
-<!-- 			<!-- starting with a form that allows all fields except the ID to be manually edited -->
-<!-- 			<!-- this will be altered based off what is needed --> 
-<!-- 			<form action="#" th:action="@{/home/save}" th:object="${item}" method="POST"> -->
+			
+		<!-- starting with a form that allows all fields except the ID to be manually edited -->
+ 			<!-- this will be altered based off what is needed --> 
+ 			<form action="#" th:action="@{/home/save}" th:object="${item}" method="POST"> 
 				
-<!-- 				Hidden field to store ID, this enables item to be updated -->
-<!-- 				<input type="hidden" th:field="*{id}" /> -->
+ 				<!-- Hidden field to store ID, this enables item to be updated -->
+ 				<input type="hidden" th:field="*{id}" /> 
 				
-<!-- 				<input type="text" th:field="*{status}" class="" placeholder=""> -->
-<!-- 				<input type="text" th:field="*{title}" class="" placeholder=""> -->
-<!-- 				<input type="text" th:field="*{content}" class="" placeholder=""> -->
-<!-- 				<input type="text" th:field="*{priority}" class="" placeholder=""> -->
-<!-- 				<input type="text" th:field="*{severity}" class="" placeholder=""> -->
+				<h4>Status</h4>
+ 				<input type="text" th:field="*{status}" class="" placeholder="Status"> 
+ 				
+ 				<h4>Title</h4>
+ 				<input type="text" th:field="*{title}" class="" placeholder="Title"> 
+ 				
+ 				<h4>Description</h4>
+ 				<input type="text" th:field="*{content}" class="" placeholder="Description"> 
+ 				
+ 				<h4>Priority</h4>
+ 				<input type="text" th:field="*{priority}" class="" placeholder="Priority"> 
+ 				
+ 				<h4>Severity</h4>
+ 				<input type="text" th:field="*{severity}" class="" placeholder="Severity">
+ 				
+ 				<h4>Due Date</h4>
+ 				<input type="text" th:field="*{dueDate}" class="" placeholder="Due Date"> 
 				
-<!-- 				these items will likely be handled differently -->
-<!-- 				<input type="text" th:field="*{dueDate}" class="" placeholder=""> -->
-<!-- 				<input type="text" th:field="*{dateCreated}" class="" placeholder=""> -->
-<!-- 				<input type="text" th:field="*{dateUpdated}" class="" placeholder=""> -->
+ 				<!-- these items will likely be handled differently -->
+				<input type="hidden" th:field="*{dateCreated}" class="" placeholder=""> 
+				<input type="hidden" th:field="*{dateUpdated}" class="" placeholder="">
 				
-<!-- 			</form> -->
+				<button type="submit" class="btn btn-info col-2">Save</button> 
+				
+			</form> 
 
 		</div>
 	</body>
