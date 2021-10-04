@@ -73,3 +73,8 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
 	background-color: #80798C;
 }
+
+form {
+	padding-left:20px;
+	padding-bottom:20px;
+}

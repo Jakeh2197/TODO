@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jakehcodes.todo.entity.TodoItem;
 import com.jakehcodes.todo.service.TodoService;
@@ -48,6 +49,24 @@ public class HomeController {
 	@PostMapping("save")
 	public String saveItem(@ModelAttribute("item") TodoItem item) {
 		todoService.saveTodoItem(item);
+		
+		return "redirect:/home/list";
+	}
+	
+	@GetMapping("/updateItem")
+	public String updateItem(@RequestParam("itemId") int id, Model model) {
+		
+		TodoItem item = todoService.findById(id);
+		
+		model.addAttribute("item", item);
+		
+		return "home/add-item-form";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("itemId") int id) {
+		
+		todoService.deleteById(id);
 		
 		return "redirect:/home/list";
 	}
