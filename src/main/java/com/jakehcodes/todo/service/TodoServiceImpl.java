@@ -42,7 +42,7 @@ public class TodoServiceImpl implements TodoService {
 
 	@Override
 	public void saveTodoItem(TodoItem item) {
-		
+		todoRepository.save(item);
 	}
 
 	@Override

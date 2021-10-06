@@ -1,5 +1,6 @@
 package com.jakehcodes.todo.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,13 @@ public class HomeController {
 	
 	@GetMapping("/addItem")
 	public String addItem (Model model) {
-		
 		TodoItem item = new TodoItem();
+		
+		Date date_created = new Date();
+		Date date_updated = new Date();
+		
+		item.setDateCreated(date_created);
+		item.setDateUpdated(date_updated);
 		
 		model.addAttribute("item", item);
 		
@@ -55,7 +61,7 @@ public class HomeController {
 	
 	@GetMapping("/updateItem")
 	public String updateItem(@RequestParam("itemId") int id, Model model) {
-		
+	
 		TodoItem item = todoService.findById(id);
 		
 		model.addAttribute("item", item);

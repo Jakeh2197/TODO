@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="item")
 public class TodoItem {
@@ -34,12 +36,15 @@ public class TodoItem {
 	private String severity;
 	
 	@Column(name="due_date")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date dueDate;
 	
 	@Column(name="date_created")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date dateCreated;
 	
 	@Column(name="date_updated")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date dateUpdated;
 
 	public TodoItem(String status, String title, String content, int priority, String severity, Date dueDate,
@@ -50,7 +55,7 @@ public class TodoItem {
 		this.priority = priority;
 		this.severity = severity;
 		this.dueDate = dueDate;
-		this.dateCreated = dateCreated;
+		this.dateCreated = dateUpdated;
 		this.dateUpdated = dateUpdated;
 	}
 
