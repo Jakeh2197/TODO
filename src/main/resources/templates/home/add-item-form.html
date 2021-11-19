@@ -24,19 +24,17 @@
  				<input type="hidden" th:field="*{id}" /> 
 				
 				<h4>Status</h4>
- 				<input type="text" th:field="*{status}" class="" placeholder="Status"> 
+ 				<select name="status" th:field="*{status}">
+	 				<option th:each="status : ${T(com.jakehcodes.todo.entity.utility.StatusCode).values()}"
+	 				 		th:value="${status}" 
+	 				 		th:text="${status}" >
+ 				</select>
  				
  				<h4>Title</h4>
  				<input type="text" th:field="*{title}" class="" placeholder="Title"> 
  				
  				<h4>Description</h4>
  				<input type="text" th:field="*{content}" class="" placeholder="Description"> 
- 				
- 				<h4>Priority</h4>
- 				<input type="text" th:field="*{priority}" class="" placeholder="Priority"> 
- 				
- 				<h4>Severity</h4>
- 				<input type="text" th:field="*{severity}" class="" placeholder="Severity">
  				
  				<h4>Due Date</h4>
  				<input type="text" th:field="*{dueDate}" class="" placeholder="Due Date"> 

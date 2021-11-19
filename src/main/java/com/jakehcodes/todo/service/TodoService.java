@@ -14,4 +14,7 @@ public interface TodoService {
 	
 	public void deleteById(int id);
 
+	public List<TodoItem> findActive();
+
+	public List<TodoItem> findInactive();
 }

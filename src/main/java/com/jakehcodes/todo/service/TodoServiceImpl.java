@@ -23,6 +23,16 @@ public class TodoServiceImpl implements TodoService {
 	public List<TodoItem> findAll() {
 		return todoRepository.findAllByOrderByIdAsc();
 	}
+	
+	@Override
+	public List<TodoItem> findActive() {
+		return todoRepository.findActiveItems();
+	}
+	
+	@Override
+	public List<TodoItem> findInactive() {
+		return todoRepository.findInactiveItems();
+	}
 
 	@Override
 	public TodoItem findById(int id) {

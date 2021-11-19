@@ -1,24 +1,59 @@
 body {
-	background-color:#000;
+	background-color:#242424;
 }
 
 .container {
-	background-color:#303030;
+	background-color:#5e5e5e;
 	margin-right:auto;
 	margin-left:auto;
-	width:75%;
-	border-radius:6px;
+	width:1445px;
+	height: 700px;
+	border-radius:3px;
+	box-shadow: 5px 5px 5px;
 }
 
 .table {
-	margin-right:auto;
-	margin-left:auto;
+	float: left;
+	margin-left: 15px;
+	margin-top: 15px;
   	border-collapse: separate;
   	border-spacing: 0;
-  	min-width: 350px;
+  	width: 700px;
   	color:#000;
   	text-align:center;
-  	padding:25px;
+  	box-shadow: 5px 5px 5px;
+}
+
+#ID {
+	width: 10%;
+}
+
+#title {
+	width: 44%;
+}
+
+#status {
+	width: 10%;
+}
+
+#dueDate {
+	width: 15%;
+}
+
+#action {
+	width: 21%;
+}
+
+.data {
+	padding-bottom:25px;
+}
+
+.btn {
+	padding: 5px;
+	margin: 5px;
+	background-color:#2e005c;
+	border-radius:3px;
+	box-shadow: 3px 3px 5px #000;
 }
 
 table tr th,
@@ -42,26 +77,26 @@ table tr th {
 
 /* top-left border-radius */
 table tr:first-child th:first-child {
-  	border-top-left-radius: 6px;
+  	border-top-left-radius: 3px;
 }
 
 /* top-right border-radius */
 table tr:first-child th:last-child {
-  	border-top-right-radius: 6px;
+  	border-top-right-radius: 3px;
 }
 
 /* bottom-left border-radius */
 table tr:last-child td:first-child {
-  	border-bottom-left-radius: 6px;
+  	border-bottom-left-radius: 3px;
 }
 
 /* bottom-right border-radius */
 table tr:last-child td:last-child {
-  	border-bottom-right-radius: 6px;
+  	border-bottom-right-radius: 3px;
 }
 
 a {
-	color:#000;
+	color:white;
 	text-decoration:none;
 	margin-right:20px;
 }
@@ -72,6 +107,10 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
 	background-color: #80798C;
+}
+
+td {
+	height:25px;
 }
 
 form {

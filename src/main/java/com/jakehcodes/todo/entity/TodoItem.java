@@ -1,5 +1,8 @@
 package com.jakehcodes.todo.entity;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -29,34 +32,26 @@ public class TodoItem {
 	@Column(name="content")
 	private String content;
 	
-	@Column(name="priority")
-	private int priority;
-	
-	@Column(name="severity")
-	private String severity;
-	
 	@Column(name="due_date")
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
-	private Date dueDate;
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private LocalDate dueDate;
 	
 	@Column(name="date_created")
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
-	private Date dateCreated;
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private LocalDate dateCreated;
 	
 	@Column(name="date_updated")
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
-	private Date dateUpdated;
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private LocalDate dateUpdated;
 
-	public TodoItem(String status, String title, String content, int priority, String severity, Date dueDate,
+	public TodoItem(String status, String title, String content, Date dueDate,
 			Date dateCreated, Date dateUpdated) {
 		this.status = status;
 		this.title = title;
 		this.content = content;
-		this.priority = priority;
-		this.severity = severity;
-		this.dueDate = dueDate;
-		this.dateCreated = dateUpdated;
-		this.dateUpdated = dateUpdated;
+		this.dueDate = Instant.ofEpochMilli(dueDate.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+		this.dateCreated = Instant.ofEpochMilli(dateCreated.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+		this.dateUpdated = Instant.ofEpochMilli(dateUpdated.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 
 	public TodoItem() {
@@ -94,50 +89,34 @@ public class TodoItem {
 		this.content = content;
 	}
 
-	public int getPriority() {
-		return priority;
-	}
-
-	public void setPriority(int priority) {
-		this.priority = priority;
-	}
-
-	public String getSeverity() {
-		return severity;
-	}
-
-	public void setSeverity(String severity) {
-		this.severity = severity;
-	}
-
-	public Date getDueDate() {
+	public LocalDate getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(Date dueDate) {
+	public void setDueDate(LocalDate dueDate) {
 		this.dueDate = dueDate;
 	}
 
-	public Date getDateCreated() {
+	public LocalDate getDateCreated() {
 		return dateCreated;
 	}
 
-	public void setDateCreated(Date dateCreated) {
+	public void setDateCreated(LocalDate dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 
-	public Date getDateUpdated() {
+	public LocalDate getDateUpdated() {
 		return dateUpdated;
 	}
 
-	public void setDateUpdated(Date dateUpdated) {
+	public void setDateUpdated(LocalDate dateUpdated) {
 		this.dateUpdated = dateUpdated;
 	}
 
 	@Override
 	public String toString() {
-		return "TodoItem [id=" + id + ", status=" + status + ", title=" + title + ", content=" + content + ", priority="
-				+ priority + ", severity=" + severity + ", dueDate=" + dueDate + ", dateCreated=" + dateCreated
+		return "TodoItem [id=" + id + ", status=" + status + ", title=" + title + ", content=" + content
+				+ ", dueDate=" + dueDate + ", dateCreated=" + dateCreated
 				+ ", dateUpdated=" + dateUpdated + "]";
 	}
 
