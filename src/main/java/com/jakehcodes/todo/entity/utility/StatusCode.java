@@ -4,5 +4,6 @@ public enum StatusCode {
 	Pending,
 	Active,
 	Paused,
-	Complete
+	Complete,
+	Cancelled
 }

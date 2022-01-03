@@ -2,6 +2,7 @@ package com.jakehcodes.todo.service;
 
 import java.util.List;
 
+import com.jakehcodes.todo.entity.Project;
 import com.jakehcodes.todo.entity.TodoItem;
 
 public interface TodoService {
@@ -17,4 +18,8 @@ public interface TodoService {
 	public List<TodoItem> findActive();
 
 	public List<TodoItem> findInactive();
+
+	public List<Project> findAllProjects();
+	
+	public void saveProject(Project project);
 }

@@ -43,15 +43,19 @@ public class TodoItem {
 	@Column(name="date_updated")
 	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private LocalDate dateUpdated;
+	
+	@Column(name="project_name")
+	private String projectName;
 
 	public TodoItem(String status, String title, String content, Date dueDate,
-			Date dateCreated, Date dateUpdated) {
+			Date dateCreated, Date dateUpdated, String projectName) {
 		this.status = status;
 		this.title = title;
 		this.content = content;
 		this.dueDate = Instant.ofEpochMilli(dueDate.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
 		this.dateCreated = Instant.ofEpochMilli(dateCreated.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
 		this.dateUpdated = Instant.ofEpochMilli(dateUpdated.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+		this.projectName = projectName;
 	}
 
 	public TodoItem() {
@@ -113,11 +117,19 @@ public class TodoItem {
 		this.dateUpdated = dateUpdated;
 	}
 
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectId) {
+		this.projectName = projectId;
+	}
+
 	@Override
 	public String toString() {
 		return "TodoItem [id=" + id + ", status=" + status + ", title=" + title + ", content=" + content
 				+ ", dueDate=" + dueDate + ", dateCreated=" + dateCreated
-				+ ", dateUpdated=" + dateUpdated + "]";
+				+ ", dateUpdated=" + dateUpdated + ", projectId=" + projectName + "]";
 	}
 
 }

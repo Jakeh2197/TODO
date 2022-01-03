@@ -6,17 +6,21 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jakehcodes.todo.dao.ProjectRepository;
 import com.jakehcodes.todo.dao.TodoRepository;
+import com.jakehcodes.todo.entity.Project;
 import com.jakehcodes.todo.entity.TodoItem;
 
 @Service
 public class TodoServiceImpl implements TodoService {
 	
 	private TodoRepository todoRepository;
+	private ProjectRepository projectRepository;
 	
 	@Autowired
-	public TodoServiceImpl(TodoRepository todoRepository) {
+	public TodoServiceImpl(TodoRepository todoRepository, ProjectRepository projectRepository) {
 		this.todoRepository = todoRepository;
+		this.projectRepository = projectRepository;
 	}
 
 	@Override
@@ -58,6 +62,16 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	public void deleteById(int id) {
 		todoRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Project> findAllProjects() {
+		return projectRepository.findAllProjects();
+	}
+	
+	@Override
+	public void saveProject(Project project) {
+		projectRepository.save(project);
 	}
 
 }

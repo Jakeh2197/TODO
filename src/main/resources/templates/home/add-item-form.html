@@ -22,23 +22,30 @@
 				
  				<!-- Hidden field to store ID, this enables item to be updated -->
  				<input type="hidden" th:field="*{id}" /> 
+ 				
+ 				<h4>Project</h4>
+ 				<select name="Project Name" th:field="${item.projectName}">
+ 					<option th:each="project : ${projects}" 
+ 					        th:value="${project.projectName}"
+ 					        th:text="${project.projectName}">
+ 				</select>
 				
 				<h4>Status</h4>
- 				<select name="status" th:field="*{status}">
+ 				<select name="status" th:field="${item.status}">
 	 				<option th:each="status : ${T(com.jakehcodes.todo.entity.utility.StatusCode).values()}"
 	 				 		th:value="${status}" 
 	 				 		th:text="${status}" >
  				</select>
  				
  				<h4>Title</h4>
- 				<input type="text" th:field="*{title}" class="" placeholder="Title"> 
+ 				<input type="text" th:field="${item.title}" class="" placeholder="Title"> 
  				
  				<h4>Description</h4>
- 				<input type="text" th:field="*{content}" class="" placeholder="Description"> 
+ 				<input type="text" th:field="${item.content}" class="" placeholder="Description"> 
  				
  				<h4>Due Date</h4>
- 				<input type="text" th:field="*{dueDate}" class="" placeholder="Due Date"> 
-				
+ 				<input type="text" th:field="${item.dueDate}" class="" placeholder="Due Date"> 
+
  				<!-- these items will likely be handled differently -->
 				<input type="hidden" th:field="*{dateCreated}" class="" placeholder=""> 
 				<input type="hidden" th:field="*{dateUpdated}" class="" placeholder="">
